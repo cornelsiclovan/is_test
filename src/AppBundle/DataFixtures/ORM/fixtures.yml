@@ -1,0 +1,14 @@
+AppBundle\Entity\Customer:
+  customer_{1..10}:
+    name: <name()>
+    email: <email()>
+    cnp: <numberBetween(11234567, 9999999999)>
+
+AppBundle\Entity\Transaction:
+  customer.transaction_{1..100}:
+    amount: <numberBetween(1, 1000)>
+    date:   <dateTimeBetween('-6 months', 'now')>
+    my_offset: <numberBetween(10, 100)>
+    my_limit:  <numberBetween(100, 1000)>
+    customer: '@customer_*'
+
